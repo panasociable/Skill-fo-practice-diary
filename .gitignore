@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.DS_Store
+# готовые заполненные дневники
+Дневник_*.docx
+test_out.docx
