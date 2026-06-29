@@ -1,6 +1,6 @@
 {
   "name": "dnevnik-praktiki-pgtu",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "ИИ-помощник для оформления «Дневника практики» ПГТУ: из свободного описания студента генерирует готовый .docx по шаблону вуза. Работает с Claude, ChatGPT, Gemini, DeepSeek.",
   "bin": {
     "dnevnik-praktiki": "bin/dnevnik.js"
