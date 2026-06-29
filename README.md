@@ -83,8 +83,17 @@ tools/
 ## Запуск скрипта вручную
 
 ```bash
-pip install python-docx --break-system-packages
-python3 skills/dnevnik-praktiki/scripts/fill_diary.py data.json "Дневник_Иванов.docx"
+python -m pip install -r requirements.txt
+python skills/dnevnik-praktiki/scripts/fill_diary.py data.json "Дневник_Иванов.docx"
+```
+
+На Linux/macOS, если команда `python` указывает на Python 2 или отсутствует,
+используйте `python3`.
+
+## Проверка проекта
+
+```bash
+python -m unittest discover -s tests
 ```
 
 ## Поля

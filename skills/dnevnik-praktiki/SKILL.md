@@ -80,12 +80,13 @@ description: >-
 `assets/data_example.json`) и запусти:
 
 ```bash
-python3 scripts/fill_diary.py <data.json> "<Дневник_Фамилия.docx>"
+python scripts/fill_diary.py <data.json> "<Дневник_Фамилия.docx>"
 ```
 
 Скрипт использует `assets/template.docx`, требует `python-docx`
-(`pip install python-docx --break-system-packages`). Имя выходного файла —
-с фамилией студента, чтобы его было удобно найти.
+(`python -m pip install python-docx`). Если в окружении доступен только
+`python3`, используй его. Имя выходного файла — с фамилией студента, чтобы его
+было удобно найти.
 
 После сборки **обязательно** покажи готовый `.docx` студенту через
 `present_files`.
