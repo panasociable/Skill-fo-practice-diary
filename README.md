@@ -8,7 +8,7 @@
 
 [![ИИ](https://img.shields.io/badge/AI-Claude%20·%20ChatGPT%20·%20Gemini%20·%20GigaChat%20·%20YandexGPT-8A63D2)](#)
 [![npm version](https://img.shields.io/npm/v/dnevnik-praktiki-pgtu.svg?logo=npm&color=CB3837)](https://www.npmjs.com/package/dnevnik-praktiki-pgtu)
-[![npm downloads](https://img.shields.io/npm/dm/dnevnik-praktiki-pgtu.svg?color=CB3837)](https://www.npmjs.com/package/dnevnik-praktiki-pgtu)
+[![license](https://img.shields.io/npm/l/dnevnik-praktiki-pgtu.svg?color=green)](LICENSE)
 [![Формат](https://img.shields.io/badge/output-.docx-2B579A)](#)
 [![Вуз](https://img.shields.io/badge/шаблон-ПГТУ-1f6feb)](#)
 [![python-docx](https://img.shields.io/badge/python--docx-required-3776AB?logo=python&logoColor=white)](#)
