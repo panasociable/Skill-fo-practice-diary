@@ -7,6 +7,8 @@
 **Наговори данные в свободной форме — получи готовый «Дневник практики» ПГТУ в .docx. Работает с любым популярным ИИ.**
 
 [![ИИ](https://img.shields.io/badge/AI-Claude%20·%20ChatGPT%20·%20Gemini%20·%20DeepSeek-8A63D2)](#)
+[![npm version](https://img.shields.io/npm/v/dnevnik-praktiki-pgtu.svg?logo=npm&color=CB3837)](https://www.npmjs.com/package/dnevnik-praktiki-pgtu)
+[![npm downloads](https://img.shields.io/npm/dm/dnevnik-praktiki-pgtu.svg?color=CB3837)](https://www.npmjs.com/package/dnevnik-praktiki-pgtu)
 [![Формат](https://img.shields.io/badge/output-.docx-2B579A)](#)
 [![Вуз](https://img.shields.io/badge/шаблон-ПГТУ-1f6feb)](#)
 [![python-docx](https://img.shields.io/badge/python--docx-required-3776AB?logo=python&logoColor=white)](#)
