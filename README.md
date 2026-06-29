@@ -8,6 +8,7 @@
 
 [![ИИ](https://img.shields.io/badge/AI-Claude%20·%20ChatGPT%20·%20Gemini%20·%20GigaChat%20·%20YandexGPT-8A63D2)](#)
 [![npm version](https://img.shields.io/npm/v/dnevnik-praktiki-pgtu.svg?logo=npm&color=CB3837)](https://www.npmjs.com/package/dnevnik-praktiki-pgtu)
+[![Publish](https://github.com/panasociable/Skill-fo-practice-diary/actions/workflows/publish.yml/badge.svg)](https://github.com/panasociable/Skill-fo-practice-diary/actions/workflows/publish.yml)
 [![GitHub](https://img.shields.io/badge/GitHub-repo-181717?logo=github)](https://github.com/panasociable/Skill-fo-practice-diary)
 [![license](https://img.shields.io/npm/l/dnevnik-praktiki-pgtu.svg?color=green)](LICENSE)
 [![Формат](https://img.shields.io/badge/output-.docx-2B579A)](#)
@@ -208,6 +209,24 @@ python3 tests/test_fill_diary.py     # или: pytest
 
 > План работ из 8 пунктов и распределение дат по срокам считаются
 > автоматически — отдельно вводить не нужно.
+
+## Автопубликация на npm
+
+При пуше git-тега вида `vX.Y.Z` GitHub Actions сам публикует пакет на npm
+(версия берётся из тега). Workflow: `.github/workflows/publish.yml`.
+
+Разовая настройка: добавь npm-токен в Secrets репозитория —
+**Settings → Secrets and variables → Actions → New repository secret**,
+имя `NPM_TOKEN`, значение — npm-токен с обходом 2FA (Automation или
+Granular с Bypass 2FA).
+
+Дальше цикл такой:
+
+```bash
+# поправил код, затем:
+git tag v1.0.3
+git push origin v1.0.3      # Actions опубликует 1.0.3 на npm
+```
 
 ## Лицензия
 
