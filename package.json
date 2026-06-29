@@ -1,0 +1,32 @@
+{
+  "name": "dnevnik-praktiki-pgtu",
+  "version": "1.0.0",
+  "description": "ИИ-помощник для оформления «Дневника практики» ПГТУ: из свободного описания студента генерирует готовый .docx по шаблону вуза. Работает с Claude, ChatGPT, Gemini, DeepSeek.",
+  "bin": {
+    "dnevnik-praktiki": "bin/dnevnik.js"
+  },
+  "scripts": {
+    "test": "python3 tests/test_fill_diary.py"
+  },
+  "files": [
+    "bin/",
+    "skills/",
+    "tests/",
+    "AI_PROMPT.md",
+    "requirements.txt",
+    "LICENSE",
+    "README.md"
+  ],
+  "keywords": [
+    "пгту", "pgtu", "дневник-практики", "практика", "docx",
+    "ai", "claude", "chatgpt", "gemini", "skill", "template"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/panasociable/Skill-fo-practice-diary.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=14"
+  }
+}
