@@ -6,7 +6,7 @@
 
 **Наговори данные в свободной форме — получи готовый «Дневник практики» ПГТУ в .docx. Работает с любым популярным ИИ.**
 
-[![ИИ](https://img.shields.io/badge/AI-Claude%20·%20ChatGPT%20·%20Gemini%20·%20DeepSeek-8A63D2)](#)
+[![ИИ](https://img.shields.io/badge/AI-Claude%20·%20ChatGPT%20·%20Gemini%20·%20GigaChat%20·%20YandexGPT-8A63D2)](#)
 [![npm version](https://img.shields.io/npm/v/dnevnik-praktiki-pgtu.svg?logo=npm&color=CB3837)](https://www.npmjs.com/package/dnevnik-praktiki-pgtu)
 [![npm downloads](https://img.shields.io/npm/dm/dnevnik-praktiki-pgtu.svg?color=CB3837)](https://www.npmjs.com/package/dnevnik-praktiki-pgtu)
 [![Формат](https://img.shields.io/badge/output-.docx-2B579A)](#)
@@ -43,6 +43,8 @@
 | **ChatGPT** (с Code Interpreter / Data Analysis) | Загрузить `fill_diary.py` и `template.docx`, вставить промпт ниже |
 | **Gemini** (с выполнением кода) | То же: загрузить файлы скрипта и шаблона, вставить промпт |
 | **DeepSeek и другие** с запуском кода | То же — загрузить файлы и дать промпт |
+| **GigaChat** (через API) | Установить зависимости, задать ключи в `.env`, вызвать `providers/gigachat_client.py` |
+| **Яндекс GPT** (через API) | Установить зависимости, задать ключи в `.env`, вызвать `providers/yandex_gpt_client.py` |
 | Любой ИИ **без** запуска кода | Может заполнить шаблон вручную, но это менее надёжно — рекомендуется ассистент с выполнением кода |
 
 ## Как пользоваться
@@ -65,6 +67,43 @@
 2. Вставьте универсальный промпт из [`AI_PROMPT.md`](AI_PROMPT.md) и добавьте свои
    данные в свободной форме.
 3. ИИ соберёт данные в JSON, запустит скрипт и вернёт готовый `.docx`.
+
+
+### Вариант 3 — GigaChat (через API)
+
+1. Получите `client_id` и `client_secret` на [developers.sber.ru](https://developers.sber.ru/portal/products/gigachat).
+2. Скопируйте `.env.example` в `.env` и заполните `GIGACHAT_CREDENTIALS` и `GIGACHAT_SCOPE`.
+3. Установите зависимости и запустите:
+
+   ```bash
+   pip install -r requirements.txt
+   python providers/gigachat_client.py
+   ```
+
+4. Импортируйте в свой скрипт:
+
+   ```python
+   from providers.gigachat_client import ask
+   reply = ask("Оформи дневник практики. Я Иванов Иван...")
+   ```
+
+### Вариант 4 — Яндекс GPT (через API)
+
+1. Создайте сервисный аккаунт в [Yandex Cloud](https://cloud.yandex.ru/) с ролью `ai.languageModels.user`.
+2. Скопируйте `.env.example` в `.env` и заполните `YANDEX_FOLDER_ID` и `YANDEX_API_KEY`.
+3. Установите зависимости и запустите:
+
+   ```bash
+   pip install -r requirements.txt
+   python providers/yandex_gpt_client.py
+   ```
+
+4. Импортируйте в свой скрипт:
+
+   ```python
+   from providers.yandex_gpt_client import ask
+   reply = ask("Оформи дневник практики. Я Иванов Иван...")
+   ```
 
 ## Что внутри
 
