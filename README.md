@@ -75,6 +75,9 @@ skills/dnevnik-praktiki/
     ├── template.docx         # шаблон ПГТУ с плейсхолдерами {{...}}
     └── data_example.json     # пример входных данных
 AI_PROMPT.md                  # универсальный промпт для любого ИИ
+requirements.txt              # зависимости (python-docx)
+tests/
+└── test_fill_diary.py        # автотест: генерация из примера + нет {{...}}
 tools/
 ├── build_template.py         # как из исходного дневника собран шаблон
 └── template_src.docx         # исходный документ-образец
@@ -83,8 +86,18 @@ tools/
 ## Запуск скрипта вручную
 
 ```bash
-pip install python-docx --break-system-packages
+pip install -r requirements.txt
 python3 skills/dnevnik-praktiki/scripts/fill_diary.py data.json "Дневник_Иванов.docx"
+```
+
+> На некоторых Linux pip требует флаг `--break-system-packages`. На Windows и в
+> виртуальном окружении (`venv`) он не нужен.
+
+## Тесты
+
+```bash
+pip install -r requirements.txt
+python3 tests/test_fill_diary.py     # или: pytest
 ```
 
 ## Поля

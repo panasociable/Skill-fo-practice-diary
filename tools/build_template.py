@@ -47,9 +47,27 @@ for p in doc.paragraphs:
         if k in new: new = new.replace(k, v)
     if new != t: set_text(p, new)
 
-for i, p in enumerate(doc.paragraphs):
-    if i == 41 and p.text.strip() and set(p.text.strip()) <= set("_ "):
+# Вводный инструктаж (вуз): первая строка-«прочерк» (только подчёркивания)
+# после заголовка "ВВОДНЫЙ ИНСТРУКТАЖ". Привязка по содержимому, а не по номеру
+# абзаца, чтобы шаблон не ломался тихо при правках исходного .docx.
+def is_blank_line(text):
+    t = text.strip()
+    return bool(t) and set(t) <= set("_ ")
+
+seen_heading = False
+done_vuz = False
+for p in doc.paragraphs:
+    if "ВВОДНЫЙ ИНСТРУКТАЖ" in p.text:
+        seen_heading = True
+        continue
+    if seen_heading and not done_vuz and is_blank_line(p.text):
         set_text(p, "________________{{INSTR_VUZ}}________________________________________")
+        done_vuz = True
+        break
+
+if not done_vuz:
+    raise SystemExit("Не найдена строка для {{INSTR_VUZ}} — изменился исходный .docx? "
+                     "Проверьте секцию 'ВВОДНЫЙ ИНСТРУКТАЖ'.")
 
 tbl = doc.tables[1]
 for r in tbl.rows:
