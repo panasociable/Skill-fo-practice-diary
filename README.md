@@ -106,6 +106,56 @@
    reply = ask("Оформи дневник практики. Я Иванов Иван...")
    ```
 
+
+## MCP-сервер (для Claude Desktop)
+
+`mcp_server.py` реализует [Model Context Protocol](https://modelcontextprotocol.io/) через **stdio** —
+подключается напрямую к Claude Desktop и даёт ему три инструмента:
+
+| Инструмент | Что делает |
+|---|---|
+| `fill_diary` | Заполняет шаблон .docx по данным студента и возвращает путь к файлу |
+| `ask_gigachat` | Отправляет запрос в GigaChat и возвращает ответ |
+| `ask_yandexgpt` | Отправляет запрос в Яндекс GPT и возвращает ответ |
+
+### Подключение к Claude Desktop
+
+1. Установите зависимости:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+2. Заполните `.env` (скопируйте из `.env.example` и добавьте ключи).
+
+3. Добавьте сервер в конфиг Claude Desktop
+   (`~/.config/claude/claude_desktop_config.json` на Linux/Mac,
+   `%APPDATA%\Claude\claude_desktop_config.json` на Windows):
+
+   ```json
+   {
+     "mcpServers": {
+       "dnevnik-praktiki": {
+         "command": "python",
+         "args": ["/полный/путь/до/mcp_server.py"]
+       }
+     }
+   }
+   ```
+
+4. Перезапустите Claude Desktop — в интерфейсе появятся инструменты `fill_diary`,
+   `ask_gigachat`, `ask_yandexgpt`.
+
+### Пример использования
+
+После подключения можно написать Claude:
+
+> Оформи дневник практики. Я Иванов Иван Иванович, группа ИСТ-31, 3 курс,
+> кафедра информационных систем, практика в ООО «ТехноСофт» с 2026-06-29 по
+> 2026-07-12, задание — разработка модуля учёта заявок.
+
+Claude сам вызовет `fill_diary` и вернёт путь к готовому `.docx`.
+
 ## Что внутри
 
 ```
